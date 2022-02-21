@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadara:
+   name: mithram
+spec:
+   replicas: 2
+   selector:            # tells the controller which pods to watch/belong to
+    matchLabels:
+     app: mithram
+   template:
+      metadata:
+        labels:
+          app: mithram
+      spec:
+       containers:
+        - name: mithram
+          image: vikashahoke/pipeline-demo
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
+
